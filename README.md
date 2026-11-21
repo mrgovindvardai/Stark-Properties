@@ -44,7 +44,3 @@ For phone/tablet testing on the same Wi-Fi, add the computer's current Vite orig
 - Uploaded images are stored under `media/properties/` and served locally while `DEBUG = True`.
 
 The original UI ZIP omitted its photography. The four sample residences now use distinct Unsplash stock images, and the local architectural illustration is the fallback. The sample residences are concepts from the provided design, not verified live listings. Add your team's contact channels and actual property information before publishing. Unsplash image use follows the [Unsplash License](https://unsplash.com/license).
-
-## Deploy to PythonAnywhere
-
-See [DEPLOYMENT_PYTHONANYWHERE.md](DEPLOYMENT_PYTHONANYWHERE.md) for the GitHub, WSGI, static/media mapping, and first-deployment steps. Run `npm run build` before pushing so `static/frontend/` contains the latest React build.
