@@ -4,12 +4,14 @@ import { validateNewsletterEmail } from '../utils/validation';
 import { subscribe } from '../api';
 import { ContactMethod } from '../utils/validation';
 import { BrandMark } from './BrandMark';
+import { PolicyDocument } from './PolicyDialog';
 
 interface FooterProps {
   onSelectContactMethod: (method: ContactMethod) => void;
+  onOpenPolicy: (document: PolicyDocument) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onSelectContactMethod }) => {
+export const Footer: React.FC<FooterProps> = ({ onSelectContactMethod, onOpenPolicy }) => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -141,9 +143,9 @@ export const Footer: React.FC<FooterProps> = ({ onSelectContactMethod }) => {
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#B8BDB7]/70 gap-4">
           <p>© {currentYear} STARK PROPERTIES. All rights reserved. Designed with intention. Built around life.</p>
           <div className="flex items-center gap-6">
-            <a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <button type="button" onClick={() => onOpenPolicy('privacy')} className="hover:text-white transition-colors">Privacy Policy</button>
             <span aria-hidden="true">·</span>
-            <a href="#terms" className="hover:text-white transition-colors">Terms of Use</a>
+            <button type="button" onClick={() => onOpenPolicy('terms')} className="hover:text-white transition-colors">Terms of Use</button>
             <span aria-hidden="true">·</span>
             <span className="text-[#C6A875]">Demonstration Showcase</span>
           </div>

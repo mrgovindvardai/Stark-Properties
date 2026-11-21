@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { PropertyDetailModal } from './components/PropertyDetailModal';
 import { FloatingAssistant } from './components/FloatingAssistant';
 import { MobileActionBar } from './components/MobileActionBar';
+import { PolicyDialog, PolicyDocument } from './components/PolicyDialog';
 
 import { Property } from './data/properties';
 import { FilterCriteria } from './utils/propertyFilter';
@@ -33,6 +34,7 @@ export function App() {
   const [activeModalProperty, setActiveModalProperty] = useState<Property | null>(null);
   const [preSelectedPropertyForInquiry, setPreSelectedPropertyForInquiry] = useState<Property | null>(null);
   const [requestedContactMethod, setRequestedContactMethod] = useState<ContactMethod | undefined>();
+  const [openPolicy, setOpenPolicy] = useState<PolicyDocument | null>(null);
   const featuredProperty = properties.find((property) => property.featured) || properties[0];
   const galleryImages = properties.map((property) => property.image);
   const heroImage = featuredProperty?.image || '/static/images/architecture-placeholder.svg';
@@ -119,11 +121,11 @@ export function App() {
         <TrustSection />
 
         {/* 9. Inquiry and Private Consultation Form */}
-        <InquirySection preSelectedProperty={preSelectedPropertyForInquiry} requestedContactMethod={requestedContactMethod} />
+        <InquirySection preSelectedProperty={preSelectedPropertyForInquiry} requestedContactMethod={requestedContactMethod} onOpenPrivacyNotice={() => setOpenPolicy('privacy')} />
       </main>
 
       {/* 10. Footer & Newsletter */}
-      <Footer onSelectContactMethod={(method) => scrollToInquiry(undefined, method)} />
+      <Footer onSelectContactMethod={(method) => scrollToInquiry(undefined, method)} onOpenPolicy={setOpenPolicy} />
 
       {/* 11. Property Detail Modal */}
       <PropertyDetailModal
@@ -142,6 +144,8 @@ export function App() {
         onExplore={scrollToResidences}
         onEnquire={() => scrollToInquiry()}
       />
+
+      <PolicyDialog document={openPolicy} onClose={() => setOpenPolicy(null)} />
     </div>
   );
 }

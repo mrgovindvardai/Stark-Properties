@@ -8,9 +8,10 @@ import { ContactMethod } from '../utils/validation';
 interface InquirySectionProps {
   preSelectedProperty?: Property | null;
   requestedContactMethod?: ContactMethod;
+  onOpenPrivacyNotice: () => void;
 }
 
-export const InquirySection: React.FC<InquirySectionProps> = ({ preSelectedProperty, requestedContactMethod }) => {
+export const InquirySection: React.FC<InquirySectionProps> = ({ preSelectedProperty, requestedContactMethod, onOpenPrivacyNotice }) => {
   const [formData, setFormData] = useState<InquiryFormData>({
     fullName: '',
     email: '',
@@ -374,9 +375,9 @@ export const InquirySection: React.FC<InquirySectionProps> = ({ preSelectedPrope
                   />
                   <span className="text-xs text-[#B8BDB7] leading-relaxed">
                     I agree to allow Stark Properties to contact me regarding this residential inquiry in accordance with our{' '}
-                    <a href="#privacy" className="text-white underline hover:text-[#C6A875]">
+                    <button type="button" onClick={onOpenPrivacyNotice} className="text-white underline hover:text-[#C6A875]">
                       Privacy Policy
-                    </a>.
+                    </button>.
                   </span>
                 </label>
                 {errors.consent && (
