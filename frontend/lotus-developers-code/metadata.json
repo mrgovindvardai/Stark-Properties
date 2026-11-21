@@ -1,0 +1,6 @@
+{
+  "name": "Stark Properties — Thoughtfully Designed Residences",
+  "description": "Spaces That Move You. Apple-inspired luxury real estate experience presenting thoughtfully designed architectural residences, bespoke developments, and private viewing discovery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["PROPERTY_SEARCH", "CONSULTATION_INQUIRIES", "NEWSLETTER_SUBSCRIPTIONS"]
+}

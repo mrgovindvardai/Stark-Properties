@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-obsidian: #202522;
+    --color-forest: #14251D;
+    --color-botanical: #315844;
+    --color-ivory: #F3EFE5;
+    --color-soft-white: #F8F9FA;
+    --color-crimson: #A83D35;
+    --color-gold: #C6A875;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", "Noto Sans", Inter, "Helvetica Neue", sans-serif;
+    background-color: #202522;
+    color: #F8F9FA;
+    overflow-x: hidden;
+  }
+}
+
+.font-editorial {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* Apple-style backdrop blur surfaces */
+.glass-obsidian {
+  background-color: rgba(32, 37, 34, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-ivory {
+  background-color: rgba(243, 239, 229, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(32, 37, 34, 0.08);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #14251D;
+}
+::-webkit-scrollbar-thumb {
+  background: #315844;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C6A875;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
